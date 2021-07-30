@@ -4,7 +4,7 @@ import pandas as pd
 from unittest.mock import patch, Mock
 
 
-#@patch('data.raw.train.pandas.read_csv')
+@patch('data.raw.train.pandas.read_csv')
 def test_get_df(read_csv_mock: Mock):
 
     read_csv_mock.return_value = pd.DataFrame({
