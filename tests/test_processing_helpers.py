@@ -38,3 +38,17 @@ def test_get_df(read_csv_mock: Mock):
                     "Cabin": ['NaN', 'C85', 'NaN', 'C123', 'NaN'],
                     "Embarked": ['S', 'C', 'S', 'S', 'S']
     }))
+
+def test_missing_values_info(df):
+    missing_values = missing_values_info(df)
+
+
+
+
+
+# http://5.9.10.113/65579240/unittest-mock-pandas-to-csv
+def test_save_csv():
+    to_csv_mock = mock.MagicMock()
+    with mock.patch("data.clean.clean_train.to_csv", to_csv_mock, create=True):
+        save_csv(test_df, "data.clean.clean_train.to_csv")
+    to_csv_mock.asssert_called_with()
